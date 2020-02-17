@@ -1,0 +1,14 @@
+@import "header.scss";
+@import "form.scss";
+
+$font-stack: 'Montserrat', sans-serif;
+
+.results {
+    font: 100% $font-stack;
+
+    &#box {
+        border: 1px solid #545454;
+        padding: 20px;
+        background-color: #F0F0F0;
+    }
+}
