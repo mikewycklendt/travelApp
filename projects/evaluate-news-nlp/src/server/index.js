@@ -22,9 +22,11 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html', { root: __dirname + '/,'})
 })
 
+const port = 8000;
+
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(port, function () {
+    console.log(`Example app listening on ${port}`)
 })
 
 app.get('/test', function (req, res) {
