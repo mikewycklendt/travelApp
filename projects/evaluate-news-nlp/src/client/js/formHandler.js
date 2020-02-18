@@ -1,9 +1,16 @@
+import { apiCall } from "./apiCall"
+
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
+    let url = document.getElementById('URL').value
+    apiCall(url)
+    .then(async function(data){
+        console.log(data);
+        let res = await postData('/', data);
+        console.log(res);
+    });
 
     console.log("::: Form Submitted :::")
     fetch('http://localhost:8080/test')

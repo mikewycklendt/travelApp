@@ -23,9 +23,9 @@
         <main>
             <section>
                 <div class="holder">
-                <form class="form" onsubmit="return handleSubmit(event)">
-                    <input id="URL" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" id="input" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form class="form" onsubmit="return Client.handleSubmit(event)">
+                    <input id="URL" type="text" name="input" value="" onblur="onBlur()" placeholder="URL" size="48">
+                    <input type="submit" id="input" class="button" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
                 </div>
             <section>
@@ -39,16 +39,10 @@
                         Polarity: <div id="polarity"></div>
                     </div>
                     <div class="box">
-                        Subjectivity: <div id="subjectivity"></div>
-                    </div>
-                    <div class="box">
                         Text: <div id="text"></div>
                     </div>
                     <div class="box">
                         Polarity Confidence: <div id="polarityConfidence"></div>
-                    </div>
-                    <div class="box">
-                        Subjectivity Confidence: <div id="subjectivityConfidence"></div>
                     </div>
                 </div>
             </section>

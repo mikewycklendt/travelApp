@@ -3,10 +3,7 @@ const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
 const dotenv = require('dotenv');
 const AYLIENTextAPI = require('aylien_textapi');
-const textapi = new AYLIENTextAPI({
-    application_id: process.env.API_ID,
-    application_key: process.env.API_KEY
-});
+
 
 dotenv.config();
 
@@ -18,9 +15,18 @@ console.log(__dirname)
 
 projectData = {};
 
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html', { root: __dirname + '/,'})
-})
+app.route('/')
+    .get(function (req, res) {
+        res.sendFile('dist/index.html', { root: __dirname + '/,'})
+    })
+    .post(getSentiment);
+
+function getSentiment(req, res){
+    console.log(req.body);
+    projectData = req.body;
+    console.log(projectData);
+    res.status(200).send(projectData);
+};
 
 const port = 8000;
 
@@ -32,3 +38,11 @@ app.listen(port, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+app.get('/sentiment', getData);
+
+function getData(req, res){
+    res.send(projectData)
+    console.log(projectData)
+};
+
