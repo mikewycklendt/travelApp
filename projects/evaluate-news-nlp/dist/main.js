@@ -97,7 +97,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".form {\n  border: 1px solid #545454;\n  border-radius: 3px;\n  padding: 40px; }\n  .form#input {\n    padding: 5px 20px;\n    width: 100%;\n    line-height: 16px;\n    margin: 10px 0; }\n    .form#input:hover {\n      background-color: black;\n      color: white; }\n", ""]);
+exports.push([module.i, ".form {\n  border: 1px solid #545454;\n  border-radius: 3px;\n  padding: 40px; }\n  .form #input {\n    padding: 5px 20px;\n    width: 100%;\n    line-height: 16px;\n    margin: 10px 0; }\n    .form #input :hover {\n      background-color: black;\n      color: white; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -115,7 +115,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "header {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 40px; }\n  header.logo {\n    font: 200% \"Montserrat\", sans-serif; }\n", ""]);
+exports.push([module.i, "header {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 40px; }\n  header .logo {\n    font: 200% \"Montserrat\", sans-serif; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -133,7 +133,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "header {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 40px; }\n  header.logo {\n    font: 200% \"Montserrat\", sans-serif; }\n\n.form {\n  border: 1px solid #545454;\n  border-radius: 3px;\n  padding: 40px; }\n  .form#input {\n    padding: 5px 20px;\n    width: 100%;\n    line-height: 16px;\n    margin: 10px 0; }\n    .form#input:hover {\n      background-color: black;\n      color: white; }\n\n.results {\n  font: 100% \"Montserrat\", sans-serif; }\n  .results#box {\n    border: 1px solid #545454;\n    padding: 20px;\n    background-color: #F0F0F0; }\n", ""]);
+exports.push([module.i, "header {\n  display: flex;\n  justify-content: space-between;\n  padding: 10px 40px; }\n  header .logo {\n    font: 200% \"Montserrat\", sans-serif; }\n\n.form {\n  border: 1px solid #545454;\n  border-radius: 3px;\n  padding: 40px; }\n  .form #input {\n    padding: 5px 20px;\n    width: 100%;\n    line-height: 16px;\n    margin: 10px 0; }\n    .form #input :hover {\n      background-color: black;\n      color: white; }\n\n.results {\n  font: 100% \"Montserrat\", sans-serif; }\n  .results .box {\n    border: 1px solid #545454;\n    padding: 20px;\n    background-color: #F0F0F0; }\n", ""]);
 // Exports
 module.exports = exports;
 

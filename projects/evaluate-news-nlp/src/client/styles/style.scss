@@ -3,10 +3,9 @@
 
 $font-stack: 'Montserrat', sans-serif;
 
-.results {
+.results{
     font: 100% $font-stack;
-
-    &#box {
+    .box{
         border: 1px solid #545454;
         padding: 20px;
         background-color: #F0F0F0;

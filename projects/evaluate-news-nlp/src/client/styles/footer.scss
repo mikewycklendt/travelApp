@@ -1,10 +1,10 @@
 $font-stack: 'Montserrat', sans-serif;
 
-header{
+footer{
     display: flex;
     justify-content: space-between;
     padding: 10px 40px;
-    .logo{
-        font: 200% $font-stack;
+    p{
+        font: 50% $font-stack;
     }
 }
