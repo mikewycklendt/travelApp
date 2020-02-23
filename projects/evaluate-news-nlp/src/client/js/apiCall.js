@@ -1,3 +1,5 @@
+const AYLIENTextAPI = require('aylien_textapi');
+
 let textapi = new AYLIENTextAPI({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY
@@ -12,6 +14,8 @@ let apiCall = async (url) => {
             let data = response.json();
             console.log(data);
             return data;
+        }else{
+            console.log(error)
         }
     })
 };

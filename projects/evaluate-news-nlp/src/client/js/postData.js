@@ -1,3 +1,5 @@
+import { updateUI } from "./apiCall"
+
 let postData = async(url = '', data = {})=>{
     console.log(data);
     let polarity = data.polarity;

@@ -1,23 +1,16 @@
 import { apiCall } from "./apiCall"
+import { postData } from "./postData"
+import { postURL } from "./postURL"
+import { postURL } from "./postURL"
+import { updateUI } from "./updateUI"
 
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
     let url = document.getElementById('URL').value
-    apiCall(url)
-    .then(async function(data){
-        console.log(data);
-        let res = await postData('/', data);
-        console.log(res);
-    });
-
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
-}
+    postURL('/postURL', url)
+    //.then(updateUI());
+};
 
 export { handleSubmit }
