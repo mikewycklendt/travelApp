@@ -1,8 +1,8 @@
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
-import { apiCall } from './js/apiCall'
 import { postData } from './js/postData'
 import { updateUI } from './js/updateUI'
+import { postURL } from './js/postURL'
 
 import './styles/form.scss'
 import './styles/header.scss'
@@ -15,7 +15,7 @@ console.log(process.env);
 
 export {
     handleSubmit,
-    apiCall,
     postData,
-    updateUI
+    updateUI,
+    postURL
 }

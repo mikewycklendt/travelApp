@@ -2,11 +2,17 @@ var path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
 const dotenv = require('dotenv');
-
+const bodyParser = require('body-parser');
 
 
 
 const app = express()
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+const cors = require('cors');
+app.use(cors());
+
 
 app.use(express.static('dist'))
 
@@ -25,17 +31,16 @@ const AYLIENTextAPI = require('aylien_textapi');
 let textapi = new AYLIENTextAPI({
     application_id: process.env.API_ID,
     application_key: process.env.API_KEY,
-    url: url
-});
+})
 
 
 let apiCall = async (url) => {
     textapi.sentiment({
+        'url': url
     }, function(error, response) {
         if (error === null) {
-            let data = response.json();
-            console.log(data);
-            projectData = data;
+            projectData = response;
+            console.log(projectData);
         }else{
             console.log(error)
         }
@@ -76,10 +81,11 @@ function getData(req, res){
     console.log(projectData)
 };
 
-app.get('/postURL', getURL);
+app.post('/postURL', getURL);
 
 function getURL(req, res){
-    res.send(url)
+    console.log(req.body);
+    url = req.body.data;
     console.log(url)
     apiCall(url)
 }
