@@ -1,23 +1,14 @@
-const AYLIENTextAPI = require('aylien_textapi');
-
-let textapi = new AYLIENTextAPI({
-    application_id: process.env.API_ID,
-    application_key: process.env.API_KEY
-});
 
 
-let apiCall = async (url) => {
-    textapi.sentiment({
-    'url': url
-    }, function(error, response) {
-        if (error === null) {
-            let data = response.json();
-            console.log(data);
-            return data;
-        }else{
-            console.log(error)
-        }
-    })
-};
+const apiCall = async () =>{
+    const res = await fetch('/');
+    try {
+        const data = await res.json();
+        console.log(data)
+        return data;
+    } catch(error) {
+        console.log(error)
+    }
+}
 
 export { apiCall }

@@ -1,3 +1,6 @@
+import { apiCall } from "./apiCall"
+import { updateUI } from "./updateUI"
+
 let postURL = async(url = '', data = {})=>{
     console.log(data);
     let response = await fetch(url, {
@@ -9,7 +12,7 @@ let postURL = async(url = '', data = {})=>{
         body: JSON.stringify( { data} ),
     });
     try {
-        console.log(data);
+        updateUI()
     }catch(error){
         console.log("error", error);
     }
