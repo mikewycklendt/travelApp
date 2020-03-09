@@ -23,10 +23,10 @@
         <main>
             <section>
                 <div class="holder">
-                
+
                     <input id="URL" type="text" name="input" value="" placeholder="URL" size="48">
-                    <button id="generate" type = "submit"> Submit </button>
-                </form>
+                    <button id="generate">Submit URL</button>
+
                 </div>
             <section>
 
@@ -54,6 +54,14 @@
         <footer>
             <p>Michael Wycklendt      Udacity</p>
         </footer>
-
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

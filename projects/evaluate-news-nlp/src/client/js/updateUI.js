@@ -11,12 +11,8 @@ const updateUI = async () =>{
         document.getElementById("subjectivityConfidence").innerHTML = allData.polarity_confidence;
         return allData;
     }catch(error){
-        console.log(error)
+        console.log('error')
     }
 };
-
-
-
-
 
 export { updateUI }

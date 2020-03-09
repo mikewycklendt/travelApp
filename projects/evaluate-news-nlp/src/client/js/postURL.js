@@ -12,7 +12,7 @@ let postURL = async(url = '', data = {})=>{
         body: JSON.stringify( { data} ),
     });
     try {
-        updateUI()
+        return data
     }catch(error){
         console.log("error", error);
     }
