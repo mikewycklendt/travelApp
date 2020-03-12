@@ -16,7 +16,7 @@
 
         <header>
             <div class="logo">
-                News Article Processing
+                Travel App
             </div>
         </header>
 
@@ -24,8 +24,9 @@
             <section>
                 <div class="holder">
 
-                    <input id="URL" type="text" name="input" value="" placeholder="URL" size="48">
-                    <button id="generate">Submit URL</button>
+                    <input id="place" type="text" name="input" value="" placeholder="Enter Location" size="48" required>
+                    <input id="date" type="text" name="input" value="" placeholder="MM/DD/YYYY" size="48" required>
+                    <button id="generate">Submit</button>
 
                 </div>
             <section>
@@ -36,13 +37,22 @@
                         <strong>Results:</strong>
                     </div>
                     <div class="box">
-                        Polarity: <div id="polarity"></div>
+                        place: <div id="place"></div>
                     </div>
                     <div class="box">
-                        Polarity Confidence: <div id="polarityConfidence"></div>
+                        date: <div id="date"></div>
                     </div>
                     <div class="box">
-                        Subjectivity: <div id="subjectivity"></div>
+                        high: <div id="high"></div>
+                    </div>
+                    <div class="box">
+                        low: <div id="low"></div>
+                    </div>
+                    <div class="box">
+                        forecast: <div id="forecast"></div>
+                    </div>
+                    <div class="box">
+                        image: <div id="image"></div>
                     </div>
                     <div class="box">
                         Subjectivity Confidence: <div id="subjectivityConfidence"></div>
@@ -54,14 +64,6 @@
         <footer>
             <p>Michael Wycklendt      Udacity</p>
         </footer>
-        <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
-                });
-            }
-        </script>
+
     </body>
 </html>
