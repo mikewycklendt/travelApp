@@ -4,66 +4,70 @@
         <meta charset="utf-8">
         <title>Test</title>
         <link rel="stylesheet" href="/styles/style.scss">
-        <link rel="stylesheet" href="/styles/form.scss">
-        <link rel="stylesheet" href="/styles/header.scss">
-        <link rel="stylesheet" href="/styles/footer.scss">
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     </head>
 
     <body>
+    <div class="container">
 
+        <div class="banner">
         <header>
-            <div class="logo">
-                Travel App
-            </div>
+                Travel Planner
         </header>
+        </div>
 
         <main>
-            <section>
-                <div class="holder">
+            <DIV class="trip">
+                <div class="box">
 
-                    <input id="place" type="text" name="input" value="" placeholder="Enter Location" size="48" required>
-                    <input id="date" type="text" name="input" value="" placeholder="MM/DD/YYYY" size="48" required>
-                    <button id="generate">Submit</button>
+                    image: <div id="image"></div>
 
                 </div>
             <section>
+                <div class="box">
 
-            <section>
-                <div class="results">
-                    <div class="box">
-                        <strong>Results:</strong>
-                    </div>
-                    <div class="box">
-                        place: <div id="place"></div>
-                    </div>
-                    <div class="box">
-                        date: <div id="date"></div>
-                    </div>
-                    <div class="box">
+                        place: <div id="location"></div>
+                        <br>
+
+                        date: <div id="time"></div>
+                        <br>
+
+                        date until trip: <div id="daysUntil"></div>
+                        <br>
+
                         high: <div id="high"></div>
-                    </div>
-                    <div class="box">
+                        <br>
+
                         low: <div id="low"></div>
-                    </div>
-                    <div class="box">
+                        <br>
+
                         forecast: <div id="forecast"></div>
-                    </div>
-                    <div class="box">
-                        image: <div id="image"></div>
-                    </div>
-                    <div class="box">
-                        Subjectivity Confidence: <div id="subjectivityConfidence"></div>
-                    </div>
+
+                        
+
                 </div>
             </section>
-        </main>
+            </DIV>
 
+                <div class="form">
+
+                    <section>
+                    <input id="place" type="text" name="input" value="" placeholder="Enter Location" size="48" required><br>
+                    <input id="date" type="text" name="input" value="" placeholder="MM/DD/YYYY" size="48" required><br>
+                    <button id="generate">Submit</button>
+                    <button id='removeTrip'>Remove Trip </button>
+                    <section>
+                </div>
+
+        </main>
+        <div class="footer">
         <footer>
             <p>Michael Wycklendt      Udacity</p>
         </footer>
-
+        </div>
+    </div>
     </body>
 </html>

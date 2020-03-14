@@ -10,4 +10,54 @@ $font-stack: 'Montserrat', sans-serif;
         padding: 20px;
         background-color: #F0F0F0;
     }
+};
+
+.container{
+    display: grid;
+    width: 100%;
+    margin: 0px;
+    grid-template-rows: auto auto auto 50px;
+    grid-template-columns: 100%;
+    grid-template-areas: "banner"
+                         "trip"
+                         "form"
+                         "footer";
+    .banner{
+        grid-area: banner;
+        font: 200% $font-stack;
+        margin-left: 40px;
+    }
+    .trip{
+        grid-area: trip;
+        font: $font-stack;
+        display: flex;
+        height: auto;
+        flex-wrap: wrap;
+        margin: 20px;
+        background-color: #ffe6dc;
+        .box{
+            min-width: 300px;
+            max-width: 800px;
+            padding: 20px;
+        }
+    }
+    .form{
+        grid-area: form;
+        font: $font-stack;
+    }
+    .footer{
+        font-size: 10px;
+    }
 }
+
+.button{
+    padding: 15px;
+    font: $font-stack;
+    font-size: 14px;
+    background-color: white;
+    border-color: black;
+    border: 2px solid black;
+    &:hover{
+        background-color: rgb(211, 211, 211);
+    }
+};

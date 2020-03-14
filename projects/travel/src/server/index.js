@@ -4,6 +4,7 @@ const mockAPIResponse = require('./mockAPI.js');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+const Cookies = require('js-cookie')
 
 const app = express()
 app.use(express.json());
@@ -27,6 +28,10 @@ console.log(`Your API key is ${process.env.API_ID}`);
 console.log(__dirname)
 
 projectData = {
+                zero: {
+                    date: '',
+                    place: ''
+                },
                 one: {
                     coord: 
                         {
@@ -97,11 +102,10 @@ app.route('/')
 function getSentiment(req, res){
     console.log(req.body);
     projectData = req.body;
-    console.log(projectData);
     res.status(200).json(projectData);
 };
 
-const port = 8000;
+const port = 8001;
 
 // designates what port the app will listen to for incoming requests
 app.listen(port, function () {
@@ -118,6 +122,8 @@ function getData(req, res){
     date = req.body.data.date;
     projectData.one.date = date;
     projectData.one.place = place;
+    projectData.zero.date = date;
+    projectData.zero.place = place;
     place_split = place.split(", ")
     location1 = place_split[0]
     location2 = place_split[1]
@@ -170,6 +176,7 @@ function getData(req, res){
         data.two.day = day
         data.two.year = year
         console.log(data)
+        data = projectData
         return data    
     })
     .then(async function(data){

@@ -4,6 +4,8 @@ import { updateUI } from './js/updateUI'
 import { postData } from './js/postData'
 import { apiCall } from './js/apiCall'
 import { checkURL } from './js/checkURL'
+import { removeTrip } from './js/cookies'
+import { resultsCheck } from './js/cookies'
 
 import './styles/form.scss'
 import './styles/header.scss'
@@ -15,5 +17,7 @@ export {
     updateUI,
     postData,
     apiCall,
-    checkURL
+    checkURL,
+    removeTrip,
+    resultsCheck
 }
