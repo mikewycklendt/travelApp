@@ -7,8 +7,7 @@ const updateUI = async () =>{
     const res = await fetch('/results');
     console.log(res);
     try {
-        console.log(res.data)
-        const allData = await res.json();
+        allData = await res.json();
         console.log(allData)
         console.log(allData)
 
@@ -32,18 +31,19 @@ const updateUI = async () =>{
         Cookies.set('low', allData.three.low, {expires: 365});
         Cookies.set('forecast', allData.three.forecast, {expires: 365});
         Cookies.set('image', allData.four.image, {expires: 365});
+        Cookies.set('daysUntil', daysUntil)
         let save = Cookies.get('save');
         console.log(save)
-        document.getElementById("location").innerHTML = allData.zero.place;
-        document.getElementById("time").innerHTML = allData.zero.date;
-        document.getElementById("daysUntil").innerHTML = daysUntil
-        document.getElementById("high").innerHTML = allData.three.high;
-        document.getElementById("low").innerHTML = allData.three.low;
-        document.getElementById("forecast").innerHTML = allData.three.forecast;
-        document.getElementById("image").innerHTML = '<img src="' + allData.four.image + '" width="300">';
+        document.getElementById("location").textContent = 'My trip to: ' + allData.zero.place;
+        document.getElementById("time").textContent = 'Departing: ' + allData.zero.date;
+        document.getElementById("daysUntil").textContent = allData.zero.place + ' is ' + daysUntil + ' days away.'
+        document.getElementById("high").textContent = 'High - ' + allData.three.high + ', Low - ' + allData.three.low ;
+        document.getElementById("forecast").textContent = allData.three.forecast;
+        document.getElementById("image").innerHTML = '<img src="' + allData.four.image + '">';
         return allData;
     }catch(error){
         console.log(error)
+        alert('Please Enter a Valid Date and Time')
     }
 };
 

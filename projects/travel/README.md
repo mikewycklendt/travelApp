@@ -1,10 +1,10 @@
-# New Article Sentiment Analysis Project
+# Travel App Project
 
 ## Installed Packages:
 
 ### Production:
 
-1. aylien_textapi 0.7.0
+1. cors 2.8.5
 2. core-js 3.6.4
 3. dotenv 8.2.0
 4. express 4.17.1
@@ -13,6 +13,9 @@
 7. regenerator-runtime 0.13.3
 8. webpack 4.41.6
 9. webpack-cli 3.3.11
+10. file-loader 5.1.0
+11. html 1.0.0
+12. js-cookie 2.2.1
 
 ### Development:
 

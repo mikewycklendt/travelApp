@@ -134,6 +134,11 @@ function getData(req, res){
     console.log(place)
     geonames(place, GEONAMES_API)
     .then(async function(data) {
+        if(data.totalResultsCount === 'Invalid Place'){
+            projectData.zero.place = 'Invalid Place'
+            projectData = data
+            console.log(projectData)
+        }
         lng = data.geonames[1].lng
         lat = data.geonames[1].lat
         console.log(lng)
@@ -153,6 +158,7 @@ function getData(req, res){
         projectData.two.day = day;
         projectData.two.year = year;
         console.log(projectData)
+        
         data = projectData
         return data
     })
@@ -263,9 +269,21 @@ const geonames = async (place, id) => {
     try {
         const data = await res.json()
         console.log(data)
+        if(data.totalResultsCount === 0){
+            projectData.zero.date = 'Invalid Place'
+            projectData.zero.place = 'Invalid Place'
+            projectData.three.high = 'Invalid Place'
+            projectData.three.low = 'Invalid Place'
+            projectData.three.forecast = 'Invalid Plsvr'
+            projectData.four.image = 'Invalid Place'
+            data.totalResultsCount = 'Invalid Place'
+        }
+        console.log(data)
         return data
     } catch(error) {
         console.log(error)
+
+        return data
     }
 };
 
@@ -339,3 +357,4 @@ function preDarkSky(){
     console.log(year)
     darkskyFetch(lat, lng, month, day, year, darksxky_key)
 }
+

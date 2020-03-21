@@ -1,9 +1,6 @@
 const Cookies = require('js-cookie');
 
-
 document.getElementById('removeTrip').addEventListener('click', removeTrip);
-
-
 
 const resultsCheck = function() {
     if (Cookies.get('save')){
@@ -11,14 +8,15 @@ const resultsCheck = function() {
         let date = Cookies.get('date');
         let high = Cookies.get('high');
         let low = Cookies.get('low');
+        let daysUntil = Cookies.get('daysUntil')
         let forecast = Cookies.get('forecast');
         let image = Cookies.get('image')
-        document.getElementById("location").innerHTML = place;
-        document.getElementById("time").innerHTML = date;
-        document.getElementById("high").innerHTML = high;
-        document.getElementById("low").innerHTML = low;
-        document.getElementById("forecast").innerHTML = forecast;
-        document.getElementById("image").innerHTML = image;
+        document.getElementById("location").textContent = 'My trip to: ' + place;
+        document.getElementById("time").textContent = 'Departing: ' + date;
+        document.getElementById("daysUntil").textContent = place + ' is ' + daysUntil + ' days away.'
+        document.getElementById("high").textContent = 'High - ' + high + ', Low - ' + low ;
+        document.getElementById("forecast").textContent = forecast;
+        document.getElementById("image").innerHTML = '<img src="' + image + '">';
     }
 }
 
@@ -35,6 +33,12 @@ function removeTrip(event) {
         Cookies.remove('forecast');
         Cookies.remove('image');
         alert('Trip Removed')
+        document.getElementById("location").textContent = '';
+        document.getElementById("time").textContent = '';
+        document.getElementById("daysUntil").textContent = '';
+        document.getElementById("high").textContent = '';
+        document.getElementById("forecast").textContent = '';
+        document.getElementById("image").innerHTML = '';
     }
 }
 

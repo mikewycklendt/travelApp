@@ -5,7 +5,7 @@
         <title>Test</title>
         <link rel="stylesheet" href="/styles/style.scss">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     </head>
@@ -20,38 +20,38 @@
         </div>
 
         <main>
-            <DIV class="trip">
-                <div class="box">
+            <div class="trip">
+                <div class="imagebox">
 
-                    image: <div id="image"></div>
+                    <div id="image"></div>
 
                 </div>
-            <section>
-                <div class="box">
 
-                        place: <div id="location"></div>
+                <div class="tripbox">
+
+                        <div class="location" id="location"></div>
+                        <div class="time" id="time"></div>
+
+                    <button id='removeTrip'>Remove Trip </button>
+
+                        <div class="daysUntil" id="daysUntil"></div>
+
                         <br>
+                        <div class="typical">
+                        Typical weather for then is:
+                        </div>
+                        <div class="high" id="high"></div>
 
-                        date: <div id="time"></div>
-                        <br>
+                        <div class="forecast" id="forecast"></div>
+                        <br><br>
 
-                        date until trip: <div id="daysUntil"></div>
-                        <br>
-
-                        high: <div id="high"></div>
-                        <br>
-
-                        low: <div id="low"></div>
-                        <br>
-
-                        forecast: <div id="forecast"></div>
 
                         
 
                 </div>
-            </section>
-            </DIV>
 
+            </div>
+                <center>
                 <div class="form">
 
                     <section>
@@ -61,6 +61,7 @@
                     <button id='removeTrip'>Remove Trip </button>
                     <section>
                 </div>
+                </center>
 
         </main>
         <div class="footer">
@@ -69,5 +70,14 @@
         </footer>
         </div>
     </div>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
     </body>
 </html>
