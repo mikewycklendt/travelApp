@@ -19,7 +19,7 @@ dotenv.config();
 
 GEONAMES_API = process.env.GEONAMES_ID
 darksky_key = process.env.DARKSKY_KEY
-pixabay_key = process.env.pixabay_key
+pixabay_key = process.env.PIXABAY_KEY
 console.log(pixabay_key )
 console.log(darksky_key)
 console.log(GEONAMES_API);
@@ -215,7 +215,20 @@ function getData(req, res){
         term1 = data.one.location1
         term2 = data.one.location2
         key = pixabay_key
-        term = term1 + '+' + term2
+        location = projectData.zero.place
+        location_split = location.split(', ', ' ');
+        let term = ''
+        let i = 0;
+        if (location_split.length > 1) {
+            for (i = 0; i < location_split.length; i++) {
+                term += location_split[i] + '+';
+            };
+        } else {
+            term = location;
+        }
+
+        projectData.one.location2 = term;
+
         console.log(term)
         const res = await fetch(`https://pixabay.com/api/?key=${key}&q=${term}&image_type=photo&per_page=3&category=places`)
         try {
@@ -227,6 +240,7 @@ function getData(req, res){
             data = projectData
             console.log(data)
             console.log(projectData)
+            console.log(term)
             return data
         } catch(error) {
             console.log(error)

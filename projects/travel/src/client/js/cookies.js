@@ -24,6 +24,8 @@ resultsCheck();
 
 
 function removeTrip(event) {
+    alert('trip removed')
+    console.log('trip removed')
     if(Cookies.get('save')){
         Cookies.remove('save');
         Cookies.remove('place');

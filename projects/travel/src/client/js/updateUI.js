@@ -7,9 +7,11 @@ const updateUI = async () =>{
     const res = await fetch('/results');
     console.log(res);
     try {
-        allData = await res.json();
+        console.log(res.data)
+        let allData = await res.json();
         console.log(allData)
         console.log(allData)
+        console.log('response')
 
         let month = allData.two.month
         let day = allData.two.day
