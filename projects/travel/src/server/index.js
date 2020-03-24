@@ -216,15 +216,40 @@ function getData(req, res){
         term2 = data.one.location2
         key = pixabay_key
         location = projectData.zero.place
-        location_split = location.split(', ', ' ');
+        location_split = location.split(' ');
+
         let term = ''
         let i = 0;
         if (location_split.length > 1) {
             for (i = 0; i < location_split.length; i++) {
-                term += location_split[i] + '+';
+                range = location_split.length - 1;
+                if (i < range) {
+                    term += location_split[i] + '+';
+                } else {
+                    term += location_split[i];
+                }
+                
             };
+            //nocomma = term.split(',')
+            //if (nocomma.length > 1) {
+            //    for ( i = 0; i < nocomma.length; i ++) {
+            //        term += nocomma[i]
+            //    }
+            //}
         } else {
             term = location;
+        }
+
+        if (location_split.length > 1) {
+            let nocomma = term.split(',')
+            if (nocomma.length > 1) {
+                term = '';
+                for (i = 0; i < nocomma.length; i++) {
+                    term += nocomma[i]
+                }
+            }
+        } else {
+            term = location
         }
 
         projectData.one.location2 = term;
@@ -241,6 +266,7 @@ function getData(req, res){
             console.log(data)
             console.log(projectData)
             console.log(term)
+            console.log(location_split)
             return data
         } catch(error) {
             console.log(error)
