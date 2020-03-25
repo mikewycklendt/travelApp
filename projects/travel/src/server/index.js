@@ -117,6 +117,9 @@ app.listen(port, function () {
 app.post('/postData', getData);
 
 function getData(req, res){
+
+    //retrieve the data from the form
+
     console.log(req.body.data);
     place = req.body.data.place;
     date = req.body.data.date;
@@ -132,13 +135,22 @@ function getData(req, res){
     console.log(projectData)
     console.log(date)
     console.log(place)
+
+    //call the geonames api
+
     geonames(place, GEONAMES_API)
     .then(async function(data) {
+
+        //check for errors
+
         if(data.totalResultsCount === 'Invalid Place'){
             projectData.zero.place = 'Invalid Place'
             projectData = data
             console.log(projectData)
         }
+
+        //put the latitude and longitude from the geonames api call into projectData object
+
         lng = data.geonames[1].lng
         lat = data.geonames[1].lat
         console.log(lng)
@@ -146,6 +158,10 @@ function getData(req, res){
         projectData.one.coord.lat = lat;
         projectData.one.coord.lng = lng;
         console.log(projectData)
+
+        //split the date into pieces that can be used to make the darksky api call
+
+
         date_split = date.split("/")
         console.log(date_split)
         month = date_split[0]
@@ -193,6 +209,35 @@ function getData(req, res){
         year = data.two.year
         key = darksky_key
         data = projectData
+
+        // change the date if the user enters a one digit day/month or two digit year
+
+        console.log(day.length)
+
+        if (day.length === 1) {
+            day = '0' + day
+        } else {
+            day = day
+        }
+
+        if (month.length === 1) {
+            month = '0' + month
+        } else {
+            month = month
+        }
+
+        if (year.length === 2) {
+            year = '20' + year
+        } else {
+            year = year
+        }
+
+        data.two.day = day
+        data.two.month = month
+        data.two.year = year
+
+        //make darksky api call and insert them into projectData object
+
         const res = await fetch(`https://api.darksky.net/forecast/${darksky_key}/${lat},${lng},${year}-${month}-${day}T12:00:00?exclude=currently,flags`)
         try {
             let data = await res.json()
@@ -216,7 +261,12 @@ function getData(req, res){
         term2 = data.one.location2
         key = pixabay_key
         location = projectData.zero.place
+
+        //splilt up location string if input is multiple words
+
         location_split = location.split(' ');
+
+        //if location input is more than a single word, add a + connecting them
 
         let term = ''
         let i = 0;
@@ -230,12 +280,8 @@ function getData(req, res){
                 }
                 
             };
-            //nocomma = term.split(',')
-            //if (nocomma.length > 1) {
-            //    for ( i = 0; i < nocomma.length; i ++) {
-            //        term += nocomma[i]
-            //    }
-            //}
+            
+
         } else {
             term = location;
         }
@@ -255,6 +301,9 @@ function getData(req, res){
         projectData.one.location2 = term;
 
         console.log(term)
+
+        //make pixabay api call
+
         const res = await fetch(`https://pixabay.com/api/?key=${key}&q=${term}&image_type=photo&per_page=3&category=places`)
         try {
             let data = await res.json()
